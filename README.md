@@ -352,13 +352,27 @@ gitk
 ## [↑](#Home) <a name="undo"></a> Отмена изменений
 Отмена изменений - важное умение, ведь все делают ошибки.
 Более подробно можно прочитать у Atlassian в обучающем матриеале "[Undoing changes](https://www.atlassian.com/git/tutorials/undoing-changes)".
+Начнём с того, что добавим новую строку
+```
+echo "New line!" >> hello.txt
+```
+Команда **git status**, покажет, что есть изменения, которые git не рассматривает для сохранения. Кроме того, мы увидим, что мы можем выполнить следующее:
+**```git checkout -- названиеФайла```**
+Данная команда позволит отменить изменения в рабочем каталоге. Таким образом, **git checkout** позволяет разным образом управлять деревом рабочего каталога (working tree). Например, суть переключения между ветками - обновить содержимое working tree согласно коммиту, на который указывает ветка.
 
+Если мы уже выполнили добавление файла в индекс (в staging area), то отмена такого действия выполняется при помощи команды **[git reset](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset)**:
+**```git reset HEAD названиеФайла```**.
+
+Если же коммит уже отправлен на удалённый репозиторий, то надёжнее всего воспользоваться командой **[git revert](https://www.atlassian.com/git/tutorials/undoing-changes/git-revert)**.
+
+Изменения так же можно не только отменить, но и временно спрятать изменения при помощи команды **[git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)**.
 
 
 ## [↑](#Home) <a name="links"></a> Полезные материалы
 Тема контроля версий в общем и git в частности - огромна. Чтобы продолжить свой путь можно ознакомиться со следующими полезными материалами:
 - [GIT SCM book](https://git-scm.com/book/ru/v2)
 - [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
+- [Learn Git with Bitbucket Cloud](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)
 - [Part 2: Blobs and trees](https://alexwlchan.net/a-plumbers-guide-to-git/2-blobs-and-trees/)
 - [Udacity: How to Use Git and Github](https://www.youtube.com/watch?v=Ytux4IOAR_s&list=PLAwxTw4SYaPk8_-6IGxJtD3i2QAu5_s_p)
 - [Git: наглядная справка](https://marklodato.github.io/visual-git-guide/index-ru.html)
